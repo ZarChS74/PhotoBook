@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.hasMany(models.Photo);
-      User.hasOne(models.Profile)
-      User.hasMany(models.PhotoAlbum)
       // define association here
+      User.hasOne(models.Profile)
+      User.hasMany(models.Photo);
+      User.hasMany(models.PhotoAlbum)
     }
     static #encrypt = (password) => bcrypt.hashSync(password, 10);
 
