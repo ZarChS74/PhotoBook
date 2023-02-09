@@ -10,9 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      // define association here
       Photo.belongsTo(models.User)
       Photo.belongsTo(models.PhotoAlbum)
-      // define association here
     }
   }
   Photo.init({
