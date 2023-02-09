@@ -3,7 +3,8 @@ const {
   Model
 } = require('sequelize');
 
-const bcrypt = require('bcrypt')
+var bcrypt = require('bcryptjs')
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -48,6 +49,12 @@ module.exports = (sequelize, DataTypes) => {
     username: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
+    hooks: {
+      beforeCreate(instance, options){
+        console.log(instance,);
+        instance.password = "secure"
+      }
+    },
     sequelize,
     modelName: 'User',
   });

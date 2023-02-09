@@ -19,7 +19,8 @@ module.exports = {
       el.createdAt = new Date()
       el.updatedAt = new Date()
       return el
-     })
+    })
+    console.log(data);
    return queryInterface.bulkInsert('Users', data)
   },
 

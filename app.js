@@ -7,11 +7,16 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true }))
 
 app.get('/', Controller.home)
-
+app.get('/album',Controller.getAlbum)
+// app.get("/", Controller.showHomepage);
+// app.get("/commanders", Controller.showCommanders);
+// app.get("/troops", Controller.showTroops);
+// app.get("/troops/train", Controller.showAddTroops);
+// app.post("/troops/train", Controller.showSubmitTroops);
 
 
 
 
 app.listen(port, () => {
-  console.log(`Server is now working on port ${port}...`)
+  console.log(`Let's catchUp soon!, promise ${port}...`)
 })
