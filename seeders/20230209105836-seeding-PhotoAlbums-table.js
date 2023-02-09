@@ -1,5 +1,7 @@
 'use strict';
 
+const fs = require("fs")
+
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up (queryInterface, Sequelize) {
@@ -18,7 +20,7 @@ module.exports = {
       el.updatedAt = new Date()
       return el
      })
-  return queryInterface.bulkInsert('PhotoAlbums', {data})
+  return queryInterface.bulkInsert('PhotoAlbums', data)
   },
 
   down (queryInterface, Sequelize) {

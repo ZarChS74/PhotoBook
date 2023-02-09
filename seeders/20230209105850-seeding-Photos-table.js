@@ -14,13 +14,13 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    const data = JSON.parse(fs.readFileSync("./data/profiles.json", "utf-8")).map(el =>{
+    const data = JSON.parse(fs.readFileSync("./data/photos.json", "utf-8")).map(el =>{
       delete el.id
       el.createdAt = new Date()
       el.updatedAt = new Date()
       return el
      })
-  return queryInterface.bulkInsert('Profiles', {data})
+  return queryInterface.bulkInsert('Photos', data)
   },
 
   down (queryInterface, Sequelize) {
@@ -30,6 +30,6 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
-    return queryInterface.bulkDelete('Profiles', null, {})
+  return queryInterface.bulkDelete('Photos', null, {})
   }
 };
