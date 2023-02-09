@@ -20,14 +20,18 @@ module.exports = {
         references: {
           model: "Users",
           key: "id",
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
       },
       AlbumId: {
         type: Sequelize.INTEGER,
         references: {
           model: "PhotoAlbums",
           key: "id",
-        }
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
       },
       createdAt: {
         allowNull: false,
