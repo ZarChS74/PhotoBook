@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "photoUrl": "https://images.unsplash.com/photo-1624726175512-19b9baf9fbd1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "photoDetail": "Ayam Goreng Mentega",
+        "UserId": 1,
+        "AlbumId": 1
+    },
+    {
+        "id": 2,
+        "photoUrl": "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "photoDetail": "Contoh Rumah 1",
+        "UserId": 2,
+        "AlbumId": 2
+    },
+    {
+        "id": 3,
+        "photoUrl": "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Q2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Kocheeng pake kacamata",
+        "UserId": 3,
+        "AlbumId": 3
+    },
+    {
+        "id": 4,
+        "photoUrl": "https://images.unsplash.com/photo-1575244120259-ba9a7faadefe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTAzfHxmcnVpdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Blueberries in the house yoo",
+        "UserId": 3,
+        "AlbumId": 4
+    },
+    {
+        "id": 5,
+        "photoUrl": "https://images.unsplash.com/photo-1610818544205-9830e171384c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bGFuZCUyMHNjYXBlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Savana",
+        "UserId": 2,
+        "AlbumId": 5
+    },
+    {
+        "id": 6,
+        "photoUrl": "https://images.unsplash.com/photo-1501273812158-86b301cfc8db?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTA3fHxtYXJpbmUlMjBsaWZlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Contoh marine life 4",
+        "UserId": 1,
+        "AlbumId": 6
+    },
+    {
+        "id": 7,
+        "photoUrl": "https://images.unsplash.com/photo-1621188988909-fbef0a88dc04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Egg Toast",
+        "UserId": 1,
+        "AlbumId": 1
+    },
+    {
+        "id": 8,
+        "photoUrl": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "photoDetail": "Contoh Rumah 2",
+        "UserId": 2,
+        "AlbumId": 2
+    },
+    {
+        "id": 9,
+        "photoUrl": "https://images.unsplash.com/photo-1513245543132-31f507417b26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fENhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Kocheeng cemberut",
+        "UserId": 3,
+        "AlbumId": 3
+    },
+    {
+        "id": 10,
+        "photoUrl": "https://images.unsplash.com/photo-1577028300036-aa112c18d109?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NzN8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Apel ijooooo",
+        "UserId": 3,
+        "AlbumId": 4
+    },
+    {
+        "id": 11,
+        "photoUrl": "https://images.unsplash.com/photo-1609154767012-331529e7d73b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8bGFuZCUyMHNjYXBlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Natural one",
+        "UserId": 2,
+        "AlbumId": 5
+    },
+    {
+        "id": 12,
+        "photoUrl": "https://images.unsplash.com/photo-1563974514898-7aea295e12fa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fG1hcmluZSUyMGxpZmV8ZW58MHx8MHx8&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Contoh marine life 3",
+        "UserId": 1,
+        "AlbumId": 6
+    },
+    {
+        "id": 13,
+        "photoUrl": "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fGZvb2RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Steak for life",
+        "UserId": 1,
+        "AlbumId": 1
+    },
+    {
+        "id": 14,
+        "photoUrl": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+        "photoDetail": "Contoh Rumah 3",
+        "UserId": 2,
+        "AlbumId": 2
+    },
+    {
+        "id": 15,
+        "photoUrl": "https://images.unsplash.com/uploads/141319662617846f3b4c9/1677b57d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fENhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Kocheeng gabut",
+        "UserId": 3,
+        "AlbumId": 3
+    },
+    {
+        "id": 16,
+        "photoUrl": "https://images.unsplash.com/photo-1610441009633-b6ca9c6d4be2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDB8fGZydWl0c3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Mixed Berrieeees",
+        "UserId": 3,
+        "AlbumId": 4
+    },
+    {
+        "id": 17,
+        "photoUrl": "https://images.unsplash.com/photo-1571366343168-631c5bcca7a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzR8fGxhbmQlMjBzY2FwZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Padar Island",
+        "UserId": 2,
+        "AlbumId": 5
+    },
+    {
+        "id": 18,
+        "photoUrl": "https://images.unsplash.com/photo-1551244072-5d12893278ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bWFyaW5lJTIwbGlmZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Contoh marine life 2",
+        "UserId": 1,
+        "AlbumId": 6
+    },
+    {
+        "id": 19,
+        "photoUrl": "https://images.unsplash.com/photo-1511910849309-0dffb8785146?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjR8fGZvb2RzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Bihun Kuah",
+        "UserId": 1,
+        "AlbumId": 1
+    },
+    {
+        "id": 20,
+        "photoUrl": "https://images.unsplash.com/photo-1582063289852-62e3ba2747f8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjZ8fGhvdXNlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Contoh Rumah 4",
+        "UserId": 2,
+        "AlbumId": 2
+    },
+    {
+        "id": 21,
+        "photoUrl": "https://images.unsplash.com/photo-1504198146285-9aba0ff6292d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTJ8fENhdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Kocheeng tidur",
+        "UserId": 3,
+        "AlbumId": 3
+    },
+    {
+        "id": 22,
+        "photoUrl": "https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8ZnJ1aXRzfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Ragam Jeruk",
+        "UserId": 3,
+        "AlbumId": 4
+    },
+    {
+        "id": 23,
+        "photoUrl": "https://images.unsplash.com/photo-1611814396818-36b7655f13a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGxhbmQlMjBzY2FwZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Misty Forest",
+        "UserId": 2,
+        "AlbumId": 5
+    },
+    {
+        "id": 24,
+        "photoUrl": "https://images.unsplash.com/photo-1576707948881-b485713fbad7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFyaW5lJTIwbGlmZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=700&q=60",
+        "photoDetail": "Contoh marine life 1",
+        "UserId": 1,
+        "AlbumId": 6
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "albumName": "Foods",
+        "UserId": 1
+    },
+    {
+        "id": 2,
+        "albumName": "Houses",
+        "UserId": 2
+    },
+    {
+        "id": 3,
+        "albumName": "Cats",
+        "UserId": 3
+    },
+    {
+        "id": 4,
+        "albumName": "Fruits",
+        "UserId": 3
+    },
+    {
+        "id": 5,
+        "albumName": "Landscape",
+        "UserId": 2
+    },
+    {
+        "id": 6,
+        "albumName": "Marine Life",
+        "UserId": 1
+    }
+]

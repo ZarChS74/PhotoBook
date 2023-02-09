@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "firstName": "Donovan",
+        "lastName": "Wang",
+        "age": 35,
+        "location": "Jakarta",
+        "phoneNumber": "080909090908",
+        "email": "donovan.wang@test.com",
+        "UserId": 1
+    },
+    {
+        "id": 2,
+        "firstName": "Zack",
+        "lastName": "Goodwin",
+        "age": 30,
+        "location": "Semarang",
+        "phoneNumber": "081234567890",
+        "email": "zack.goodwin@test.com",
+        "UserId": 2
+    },
+    {
+        "id": 3,
+        "firstName": "Jenna",
+        "lastName": "Mcmillan",
+        "age": 25,
+        "location": "Surabaya",
+        "phoneNumber": "080987654321",
+        "email": "jenna.mcmillan@test.com",
+        "UserId": 3
+    }
+]
