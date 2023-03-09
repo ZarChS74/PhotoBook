@@ -70,15 +70,16 @@ main {
     text-align: center;
 }
 
-.bg-image{
-    background-image: im;
+body{
+    background-image: url('/public/assets/img/bg-home.jpg');
+    background-size:135%
 }
 
 
 h1 {
     font-size: 30px;
     font-family: sans-serif;
-    color: #000000;
+    color: #ffffff;
     text-transform: uppercase;
     font-weight: 300;
     text-align: center;
