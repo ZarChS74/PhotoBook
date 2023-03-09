@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       Photo.belongsTo(models.PhotoAlbum);
       Photo.belongsToMany(models.Tags, { through: models.PhotoTags });
     }
+
+    tagJoiner() {
+      return this.Tags.map(el => el.tagName).join(", ");
+    }
   }
   Photo.init({
     photoUrl: DataTypes.STRING,

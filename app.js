@@ -35,6 +35,14 @@ app.get('/', Controller.home);
 
 app.get('/myPhotos', Controller.myPhotosRender);
 
+app.get('/addphoto', Controller.addPhotos);
+
+app.post('/addphoto', Controller.addPhotosHandler);
+
+app.get('/updatephoto/:photoId', Controller.updatePhotoRender);
+
+app.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
+
 
 
 
