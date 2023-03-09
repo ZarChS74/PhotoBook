@@ -1,4 +1,4 @@
-const { User, Photo, PhotoAlbum, Profile } = require('../models');
+const { User, Photo, PhotoAlbum, Profile, Tags } = require('../models');
 const bcrypt = require('bcryptjs');
 const automaticSender = require('../helpers/automaticSender');
 
@@ -47,12 +47,22 @@ class Controller {
     }
 
     static myPhotosRender(req, res) {
-        const {id, username, email} = req.session.user;
-        Photo.findAll({
-            where : {UserId : id }
+        const { id, username, email } = req.session.user;
+        console.log(req.session.user);
+        let photoAlbum;
+        PhotoAlbum.findOne({
+            include: Photo,
+            where: { UserId: id }
         })
-            .then(photos => res.send(photos))
-            .catch(err => {console.log(err);res.send(err)});
+            .then(result => {
+                photoAlbum = result;
+                return Photo.findAll({
+                    include : Tags,
+                    where: { UserId: id } 
+                })
+            })
+            .then(photos => res.send({ photoAlbum, photos }))
+            .catch(err => { console.log(err); res.send(err) });
     }
 
 }

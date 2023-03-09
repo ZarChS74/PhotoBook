@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     photoUrl: DataTypes.STRING,
     photoDetail: DataTypes.STRING,
     UserId: DataTypes.INTEGER,
-    AlbumId: DataTypes.INTEGER
+    PhotoAlbumId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Photo',
