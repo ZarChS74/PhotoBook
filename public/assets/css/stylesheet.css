@@ -9,10 +9,12 @@ header {
     display: flex;
     justify-content: space-between;
 }
+
 .header-logo {
     padding: 1rem;
-    margin-left:0.5rem;
+    margin-left: 0.5rem;
 }
+
 .header-logo a {
     font-weight: bold;
     color: white;
@@ -29,6 +31,7 @@ header {
 .login {
     margin-right: 1rem;
 }
+
 .flex-container a {
     text-decoration: none;
     color: bisque;
@@ -65,4 +68,54 @@ main {
 
 .landing-title {
     text-align: center;
+}
+
+.bg-image{
+    background-image: im;
+}
+
+
+h1 {
+    font-size: 30px;
+    font-family: sans-serif;
+    color: #000000;
+    text-transform: uppercase;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn-1 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 10px 20px;
+    transition: 0.5s;
+    position: relative;
+    font-size: 14px;
+    background: #6200ff;
+    border: none;
+    color: #fff;
+    border-radius: 30px;
+}
+
+.btn-1:hover {
+    /* letter-spacing: 0.15em; */
+    background: #6e6e6e;
+    color: #dfdfdf;
+    /* box-shadow: 0 0 45px #cac9c9; */
+}
+
+.box-container {
+    /* content: 100px; */
+    padding-left: 1px;
+    padding-right: 1px;
+    /* border-right: 2px; */
+    border: 1px solid;
+    border-width: 30px;
+    border-color:#000000;
 }
