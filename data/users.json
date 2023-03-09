@@ -2,16 +2,19 @@
     {
         "id": 1,
         "username": "kabuto",
-        "password": "12345"
+        "password": "12345",
+		"email": "donovan.wang@test.com"
     },
     {
         "id": 2,
         "username": "onepunchman",
-        "password": "12345"
+        "password": "12345",
+		"email": "zack.goodwin@test.com"
     },
     {
         "id": 3,
         "username": "dorami",
-        "password": "12345"
+        "password": "12345",
+		"email": "jenna.mcmillan@test.com"
     }
 ]

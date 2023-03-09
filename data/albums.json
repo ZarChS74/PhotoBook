@@ -1,32 +1,32 @@
 [
     {
         "id": 1,
-        "albumName": "Foods",
+        "albumName": "Yummy Foods",
         "UserId": 1
     },
     {
         "id": 2,
-        "albumName": "Houses",
+        "albumName": "Nice Houses",
         "UserId": 2
     },
     {
         "id": 3,
-        "albumName": "Cats",
+        "albumName": "Cute Cats",
         "UserId": 3
     },
     {
         "id": 4,
-        "albumName": "Fruits",
+        "albumName": "Fresh Fruits",
         "UserId": 3
     },
     {
         "id": 5,
-        "albumName": "Landscape",
+        "albumName": "Landscape Collections",
         "UserId": 2
     },
     {
         "id": 6,
-        "albumName": "Marine Life",
+        "albumName": "Sneak Peak of Marine Life",
         "UserId": 1
     }
 ]
