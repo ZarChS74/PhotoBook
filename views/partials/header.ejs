@@ -3,19 +3,24 @@
         <a href="/">Photo Book</a>
     </div>
     <form class="search-container" action="/photos" method="get">
-        <input class="searchbox" type="text" name="search" placeholder=" type your favorite tags ... " value="<%=search%>">
+        <input class="searchbox" type="text" name="search" placeholder=" type your favorite fruit ... "
+            value="<%=search%>">
         <input class="searchButton" type="submit" value="Search">
     </form>
     <div class="flex-container">
-        <div class="login">
-            <% if (user) { %>
-                <a href="/myprofile"><%= user.username%></a>
-            <% } else { %>
+        <% if (user) { %>
+            <div class="login">
+                <a href="/myprofile">
+                    <%= user.username%>
+                </a>
+            </div>
+            <div class="myphotos">
+                <a href="/myPhotos">My Photos</a>
+            </div>
+        <% } else { %>
+            <div class="login">
                 <a href="/login">Log In</a>
-            <% } %>
-        </div>
-        <div class="myphotos">
-            <a href="/myPhotos">My Photos</a>
-        </div>
+            </div>
+        <% } %>
     </div>
 </header>
