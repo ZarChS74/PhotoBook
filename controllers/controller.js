@@ -90,7 +90,6 @@ class Controller {
                 where: { UserId: user.id }
             })
                 .then(profile => {
-                    // res.send(profile);
                     res.render('profilePage', { profile, search, user });
                 })
                 .catch(err => {
@@ -98,6 +97,32 @@ class Controller {
                     res.send(err);
                 })
         }
+    }
+
+    static editProfileRender(req, res) {
+        const search = req.query.search ?? "";
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            Profile.findOne({
+                where: { UserId: user.id }
+            })
+                .then(profile => {
+                    res.render('editProfilePage', { profile, search, user })
+                })
+                .catch(err => res.send(err));
+        }
+    }
+
+    static editProfileHandler(req, res) {
+        const user = req.session.user;
+        Profile.update(
+            {...req.body, UserId : user.id},
+            {where : {id : user.id}}
+        )
+            .then(() => res.redirect('/myProfile'))
+            .catch(err => {console.log(err); res.send(err)});
     }
 
     static myPhotosRender(req, res) {

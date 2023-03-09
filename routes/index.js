@@ -32,6 +32,10 @@ router.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
 
 router.get('/myProfile', Controller.profile);
 
+router.get('/myProfile/edit', Controller.editProfileRender);
+
+router.post('/myProfile/edit', Controller.editProfileHandler);
+
 router.get('/logout', Controller.logout);
 
 module.exports = router;

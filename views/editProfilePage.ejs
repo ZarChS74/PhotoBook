@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/css/stylesheet.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main class="main-container">
+        <div style="padding-top: 4rem; color: black;">
+            <form action="/myProfile/edit" method="post">
+                <p>First Name :</p>
+                <input type="text" name="firstName" value="<%= profile.firstName %>">
+                <p>Last Name :</p>
+                <input type="text" name="lastName" value="<%= profile.lastName %>">
+                <p>Age :</p>
+                <input type="text" name="age" value="<%= profile.age %>">
+                <p>Location :</p>
+                <input type="text" name="location" value="<%= profile.location %>">
+                <p>Phone Number :</p>
+                <input type="text" name="phoneNumber" value="<%= profile.phoneNumber %>">
+                <p></p>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
