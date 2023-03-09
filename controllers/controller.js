@@ -78,6 +78,27 @@ class Controller {
         res.render('home', { user, search });
     }
 
+    static profile(req, res) {
+        const search = req.query.search ?? "";
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            Profile.findOne({
+                include: User,
+                where: { UserId: user.id }
+            })
+                .then(profile => {
+                    // res.send(profile);
+                    res.render('profilePage', { profile, search, user });
+                })
+                .catch(err => {
+                    console.log(err);
+                    res.send(err);
+                })
+        }
+    }
+
     static myPhotosRender(req, res) {
         const search = req.query.search ?? "";
         if (!req.session.user) {
@@ -161,7 +182,7 @@ class Controller {
             } else {
                 res.redirect('/')
             }
-          })
+        })
     }
 
 }
