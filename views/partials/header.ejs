@@ -1,0 +1,55 @@
+<header>
+    <div class="header-logo">
+        Photo Book
+    </div>
+    <div class="flex-container">
+        <div class="login">
+            <% if (user) { %>
+                <a href="/myprofile"><%= user.username%></a>
+            <% } else { %>
+                <a href="/login">Log In</a>
+            <% } %>
+        </div>
+        <div class="myphotos">
+            <a href="/myPhotos">My Photos</a>
+        </div>
+    </div>
+</header>
+
+<style>
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3rem;
+        width: 100vw;
+        background-color: blueviolet;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-logo {
+        padding: 1rem;
+        color: bisque;
+        font-weight: bold;
+        margin-left:0.5rem;
+    }
+    .flex-container {
+        display: flex;
+        float: right;
+        padding: 1rem;
+        margin-right: 1rem;
+    }
+    .login {
+        margin-right: 1rem;
+    }
+    header a {
+        text-decoration: none;
+        color: bisque;
+    }
+
+    header a:hover {
+        color: rgb(246, 207, 160);
+        cursor: pointer;
+    }
+</style>
