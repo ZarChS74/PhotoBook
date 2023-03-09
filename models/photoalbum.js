@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       PhotoAlbum.belongsTo(models.User);
       PhotoAlbum.hasMany(models.Photo);
     }
+
   }
   PhotoAlbum.init({
     albumName: DataTypes.STRING,

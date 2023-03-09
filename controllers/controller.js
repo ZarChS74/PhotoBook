@@ -1,6 +1,9 @@
 const { User, Photo, PhotoAlbum, Profile, Tags } = require('../models');
 const bcrypt = require('bcryptjs');
 const automaticSender = require('../helpers/automaticSender');
+const dateFormatter = require('../helpers/dateFormatter');
+
+const { Op } = require('sequelize');
 
 class Controller {
 
@@ -43,6 +46,17 @@ class Controller {
         //display validasi, cek apakah err.name === "SequelizeValidationError" di map ambil err.errors direturn el.message diredirect render signup sambil bawa error lewat query
     }
 
+    static photos(req, res) {
+        const search = req.query.search ?? "";
+        const user = req.session.user;
+        Photo.photoFinder(search)
+            .then(photos => {
+                // res.send(photos);
+                res.render('photoCollection', { user, photos, dateFormatter, search })
+            })
+            .catch(err => { console.log(err); res.send(err) })
+    }
+
     static home(req, res) {
         const user = req.session.user;
         res.render('home', { user });
@@ -51,7 +65,7 @@ class Controller {
     static myPhotosRender(req, res) {
         const user = req.session.user;
         let photoAlbum;
-        PhotoAlbum.findOne({
+        PhotoAlbum.findAll({
             include: Photo,
             where: { UserId: user.id }
         })
@@ -63,7 +77,8 @@ class Controller {
                 })
             })
             .then(photos => {
-                res.render('myPhotos', { user, photoAlbum, photos })
+                // res.send({ user, photoAlbum, photos, dateFormatter })
+                res.render('myPhotos', { user, photoAlbum, photos, dateFormatter })
             })
             .catch(err => { console.log(err); res.send(err) });
     }
@@ -94,8 +109,8 @@ class Controller {
                 albumList = albums;
                 return Photo.findByPk(photoId);
             })
-            .then(photo => {res.render('editPhoto', { user, albumList, photo })})
-            .catch(err => {console.log(err);res.send(err)});
+            .then(photo => { res.render('editPhoto', { user, albumList, photo }) })
+            .catch(err => { console.log(err); res.send(err) });
     }
 
     static updatePhotoHandler(req, res) {
