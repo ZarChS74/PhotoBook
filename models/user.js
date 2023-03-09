@@ -63,6 +63,10 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
   });
 
+  User.beforeBulkCreate((user) => {
+    user.password = bcrypt.hashSync(user.password, 10);
+  })
+
   User.beforeCreate((user) => {
     user.password = bcrypt.hashSync(user.password, 10);
   })
