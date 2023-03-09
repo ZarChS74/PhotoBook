@@ -4,6 +4,7 @@ const automaticSender = require('../helpers/automaticSender');
 const dateFormatter = require('../helpers/dateFormatter');
 
 const { Op } = require('sequelize');
+const tagsFunction = require('../helpers/tagsFunction');
 
 class Controller {
 
@@ -48,7 +49,7 @@ class Controller {
 
     static signupHandler(req, res) {
         User.create(req.body)
-            // .then((newUser) => automaticSender(newUser))
+            .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
             .catch(err => {
                 if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
@@ -67,7 +68,6 @@ class Controller {
         const user = req.session.user;
         Photo.photoFinder(search)
             .then(photos => {
-                // res.send(photos);
                 res.render('photoCollection', { user, photos, dateFormatter, search })
             })
             .catch(err => { console.log(err); res.send(err) })
@@ -90,7 +90,6 @@ class Controller {
                 where: { UserId: user.id }
             })
                 .then(profile => {
-                    // res.send(profile);
                     res.render('profilePage', { profile, search, user });
                 })
                 .catch(err => {
@@ -98,6 +97,33 @@ class Controller {
                     res.send(err);
                 })
         }
+    }
+
+    static editProfileRender(req, res) {
+        const search = req.query.search ?? "";
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            Profile.findOne({
+                where: { UserId: user.id }
+            })
+                .then(profile => {
+                    res.render('editProfilePage', { profile, search, user })
+                })
+                .catch(err => res.send(err));
+        }
+    }
+
+    static editProfileHandler(req, res) {
+        const user = req.session.user;
+        User.findOne({
+            include: Profile,
+            where: { id: user.id }
+        })
+            .then(user => Profile.profileEditor(user, req.body))
+            .then(() => res.redirect('/myProfile'))
+            .catch(err => {console.log(err); res.send(err)});
     }
 
     static myPhotosRender(req, res) {
@@ -119,11 +145,17 @@ class Controller {
                     })
                 })
                 .then(photos => {
-                    // res.send({ user, photoAlbum, photos, dateFormatter })
                     res.render('myPhotos', { user, photoAlbum, photos, dateFormatter, search })
                 })
                 .catch(err => { console.log(err); res.send(err) });
         }
+    }
+
+    static deletePhoto(req, res) {
+        const { photoId } = req.params;
+        Photo.destroy({ where: { id: photoId } })
+            .then(() => res.redirect('/myPhotos'))
+            .catch(err => res.send(err));
     }
 
     static addPhotos(req, res) {
@@ -142,13 +174,24 @@ class Controller {
 
     static addPhotosHandler(req, res) {
         const { id, username, email } = req.session.user;
-        Photo.create({ ...req.body, UserId: id })
-            .then()
-            .then(() => res.redirect('/myPhotos'))
-            .catch(err => res.send(err));
+        Photo.create({...req.body, UserId : id})
+            .then(newPhoto => {
+                if (!req.body.tags) {
+                    res.redirect('/myPhotos');
+                } else {
+                    tagsFunction(newPhoto, req.body.tags, (err) => {
+                        if (err) {
+                            res.send(err);
+                        } else {
+                            res.redirect('/myPhotos');
+                        }
+                    })
+                }
+            })
     }
 
     static updatePhotoRender(req, res) {
+        const search = req.query.search ?? "";
         if (!req.session.user) {
             res.redirect('/login');
         } else {

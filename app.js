@@ -23,36 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(router);
 
-// app.get('/login', Controller.login);
-
-// app.get('/signup', Controller.signup);
-
-// app.post('/login', Controller.loginHandler);
-
-// app.post('/signup', Controller.signupHandler);
-
-// app.use((req, res, next) => {
-//   next();
-// })
-
-// app.get('/', Controller.home);
-
-// app.get('/photos', Controller.photos);
-
-// app.get('/myPhotos', Controller.myPhotosRender);
-
-// app.get('/addphoto', Controller.addPhotos);
-
-// app.post('/addphoto', Controller.addPhotosHandler);
-
-// app.get('/updatephoto/:photoId', Controller.updatePhotoRender);
-
-// app.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
-
-// app.get('/myProfile', Controller.profile);
-
-// app.get('/logout', Controller.logout);
-
 app.listen(port, () => {
 
 

@@ -20,6 +20,8 @@ router.get('/photos', Controller.photos);
 
 router.get('/myPhotos', Controller.myPhotosRender);
 
+router.get('/myPhotos/:photoId/delete', Controller.deletePhoto);
+
 router.get('/addphoto', Controller.addPhotos);
 
 router.post('/addphoto', Controller.addPhotosHandler);
@@ -29,6 +31,10 @@ router.get('/updatephoto/:photoId', Controller.updatePhotoRender);
 router.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
 
 router.get('/myProfile', Controller.profile);
+
+router.get('/myProfile/edit', Controller.editProfileRender);
+
+router.post('/myProfile/edit', Controller.editProfileHandler);
 
 router.get('/logout', Controller.logout);
 

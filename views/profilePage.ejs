@@ -11,11 +11,12 @@
     <%- include('./partials/header') %>
     <main class="main-container">
         <div style="padding-top: 4rem; color: black;">
-            <h2><%= profile.firstName %> <%= profile.lastName %></h2>
-            <p>Age : <%=profile.age%> </p>
-            <p>location : <%=profile.location%> </p>
-            <p>Phone Number : <%=profile.phoneNumber%> </p>
-            <p>Email : <%=profile.User.email%> </p>
+            <h2>Name : <%= profile ? profile.firstName : "" %> <%= profile ? profile.lastName : "" %></h2>
+            <p>Age : <%= profile ? profile.age : ""%> </p>
+            <p>location : <%= profile ? profile.location : ""%> </p>
+            <p>Phone Number : <%= profile ? profile.phoneNumber : ""%> </p>
+            <p>Email : <%= profile ? profile.User.email : ""%> </p>
+            <p><a href="/myProfile/edit">Edit Profile</a></p>
         </div>
     </main>
 </body>
