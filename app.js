@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 const session = require('express-session');
 
-app.use(express.static("./public"))
+app.use('/public', express.static('public'))
 
 app.use(session({
   secret: 'keyboard cat',
