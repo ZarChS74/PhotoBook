@@ -3,6 +3,7 @@ const Controller = require('./controllers/controller');
 const app = express();
 const port = 3000;
 const session = require('express-session');
+const router = require('./routes/index');
 
 app.use('/public', express.static('public'))
 
@@ -20,33 +21,37 @@ app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/login', Controller.login);
+app.use(router);
 
-app.get('/signup', Controller.signup);
+// app.get('/login', Controller.login);
 
-app.post('/login', Controller.loginHandler);
+// app.get('/signup', Controller.signup);
 
-app.post('/signup', Controller.signupHandler);
+// app.post('/login', Controller.loginHandler);
 
-app.use((req, res, next) => {
-  next();
-})
+// app.post('/signup', Controller.signupHandler);
 
-app.get('/', Controller.home);
+// app.use((req, res, next) => {
+//   next();
+// })
 
-app.get('/photos', Controller.photos);
+// app.get('/', Controller.home);
 
-app.get('/myPhotos', Controller.myPhotosRender);
+// app.get('/photos', Controller.photos);
 
-app.get('/addphoto', Controller.addPhotos);
+// app.get('/myPhotos', Controller.myPhotosRender);
 
-app.post('/addphoto', Controller.addPhotosHandler);
+// app.get('/addphoto', Controller.addPhotos);
 
-app.get('/updatephoto/:photoId', Controller.updatePhotoRender);
+// app.post('/addphoto', Controller.addPhotosHandler);
 
-app.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
+// app.get('/updatephoto/:photoId', Controller.updatePhotoRender);
 
-app.get('/logout', Controller.logout);
+// app.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
+
+// app.get('/myProfile', Controller.profile);
+
+// app.get('/logout', Controller.logout);
 
 app.listen(port, () => {
 
