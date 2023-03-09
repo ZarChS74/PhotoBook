@@ -13,14 +13,17 @@
     <center>
         <form action="/signup" method="post">
             <div>
-                <input type="username" id="username" name="username" placeholder="Input username..." required />
-            </div>
+                <label for="email">Input your Email:</label><br>
+                <input type="email" id="email" name="email" placeholder="Input email..."/>
+            </div><br>
             <div>
-                <input type="email" id="email" name="email" placeholder="Input email..." required />
-            </div>
+                <label for="username">New username:</label><br>
+                <input type="username" id="username" name="username" placeholder="Input username..."/>
+            </div><br>
             <div>
-                <input  type="password" id="password" name="password" placeholder="Input password..." required /> 
-            </div>
+                <label for="password">New password:</label><br>
+                <input  type="password" id="password" name="password" placeholder="Input password..."/> 
+            </div><br>
             <div>
                 <input type="submit" value="Sign Up">
             </div>

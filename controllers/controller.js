@@ -39,6 +39,8 @@ class Controller {
             // .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
             .catch(err => res.send(err));
+
+            //display validasi, cek apakah err.name === "SequelizeValidationError" di map ambil err.errors direturn el.message diredirect render signup sambil bawa error lewat query
     }
 
     static home(req, res) {

@@ -9,21 +9,24 @@
     <title>LogIn</title>
 </head>
 <body>
-    <h1>Login</h1>
-    
-    <form action="/login" method="POST">
-        <div>
-            <input type="username" id="username" name="username" placeholder="Input username..." required />
-        </div>
-        <div>
-            <input  type="password" id="password" name="password" placeholder="Input password..." required /> 
-        </div>
-        <div>
-            <input type="submit" value="Login">
-        </div>
+    <center>
+        <h1>Login</h1>
+    </center>
+    <center>
+        <form action="/login" method="POST">
+            <div>
+                <input type="username" id="username" name="username" placeholder="Input username..." />
+            </div><br>
+            <div>
+                <input  type="password" id="password" name="password" placeholder="Input password..." /> 
+            </div><br>
+            <div>
+                <input type="submit" value="Login">
+            </div><br>
+        </form>
         <div>
             <a href="/signup"><button>Register</button> </a>
         </div>
-    </form>
+    </center>
 </body>
 </html>
