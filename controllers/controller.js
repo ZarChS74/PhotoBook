@@ -21,9 +21,9 @@ class Controller {
         const { username, password } = req.body;
         User.findOne({ where: { username } })
             .then(user => {
+                const invalidUser = `Wrong username/password`;
                 if (user) {
                     const isValid = bcrypt.compareSync(password, user.password);
-                    const invalidUser = `Wrong username/password`;
                     if (isValid) {
                         req.session.user = { id: user.id, username: username, email: user.email };
                         res.redirect('/')
@@ -34,14 +34,29 @@ class Controller {
                     res.redirect(`/login?errors=${invalidUser}`)
                 }
             })
-            .catch(err => res.send(err));
+            .catch(err => {
+                if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
+                    const errors = err.errors.map(el => el.message);
+                    res.redirect(`/login?errors=${errors}`);
+                } else {
+                    console.log(err);
+                    res.send(err);
+                }
+            })
     }
 
     static signupHandler(req, res) {
         User.create(req.body)
             // .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
-            .catch(err => res.send(err));
+            .catch(err => {
+                if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
+                    const errors = err.errors.map(el => el.message);
+                    res.redirect(`/signup?errors=${errors}`);
+                } else {
+                    res.send(err);
+                }
+            });
 
         //display validasi, cek apakah err.name === "SequelizeValidationError" di map ambil err.errors direturn el.message diredirect render signup sambil bawa error lewat query
     }
@@ -137,6 +152,16 @@ class Controller {
         )
             .then(() => res.redirect('/myPhotos'))
             .catch(err => res.send(err));
+    }
+
+    static logout(req, res) {
+        req.session.destroy((err) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.redirect('/')
+            }
+          })
     }
 
 }

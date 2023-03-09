@@ -28,7 +28,7 @@
                 </div>
             <% photos.forEach(el => { %>
                 <div>
-                    <img style="max-width: 50rem; max-height: 40rem;" src="<%= el.photoUrl %>" alt="">
+                    <img src="<%= el.photoUrl %>" alt="">
                     <div style="display: flex; justify-content: space-between;">
                         <p><a href="/updatephoto/<%= el.id %>">Edit Photo</a></p>
                         <p style="color: black;"><%= el.tagJoiner() %></p>
