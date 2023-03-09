@@ -125,6 +125,13 @@ class Controller {
         }
     }
 
+    static deletePhoto(req, res) {
+        const { photoId } = req.params;
+        Photo.destroy({ where: { id: photoId } })
+            .then(() => res.redirect('/myPhotos'))
+            .catch(err => res.send(err));
+    }
+
     static addPhotos(req, res) {
         const search = req.query.search ?? "";
         if (!req.session.user) {
@@ -142,7 +149,6 @@ class Controller {
     static addPhotosHandler(req, res) {
         const { id, username, email } = req.session.user;
         Photo.create({ ...req.body, UserId: id })
-            .then()
             .then(() => res.redirect('/myPhotos'))
             .catch(err => res.send(err));
     }

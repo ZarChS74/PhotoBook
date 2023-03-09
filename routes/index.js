@@ -20,6 +20,8 @@ router.get('/photos', Controller.photos);
 
 router.get('/myPhotos', Controller.myPhotosRender);
 
+router.get('/myPhotos/:photoId/delete', Controller.deletePhoto);
+
 router.get('/addphoto', Controller.addPhotos);
 
 router.post('/addphoto', Controller.addPhotosHandler);
