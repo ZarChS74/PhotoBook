@@ -10,12 +10,14 @@
 <body>
     <%- include('./partials/header') %>
     <main class="main-container">
-        <div style="padding-top: 4rem; color: black;">
+        <div class="add-new-photo">
+            <h1 class="landing-title">Your Profile</h1>
             <h2>Name : <%= profile ? profile.firstName : "" %> <%= profile ? profile.lastName : "" %></h2>
             <p>Age : <%= profile ? profile.age : ""%> </p>
             <p>location : <%= profile ? profile.location : ""%> </p>
             <p>Phone Number : <%= profile ? profile.phoneNumber : ""%> </p>
             <p>Email : <%= profile ? profile.User.email : ""%> </p>
+            <br>
             <p><a href="/myProfile/edit">Edit Profile</a></p>
         </div>
     </main>

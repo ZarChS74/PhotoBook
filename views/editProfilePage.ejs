@@ -10,8 +10,9 @@
 <body>
     <%- include('./partials/header') %>
     <main class="main-container">
-        <div style="padding-top: 4rem; color: black;">
-            <form action="/myProfile/edit" method="post">
+        <div class="add-new-photo">
+            <h1 class="landing-title">Edit Your Profile</h1>
+            <form class="form-container" action="/myProfile/edit" method="post">
                 <p>First Name :</p>
                 <input type="text" name="firstName" value="<%= profile ? profile.firstName : "" %>">
                 <p>Last Name :</p>

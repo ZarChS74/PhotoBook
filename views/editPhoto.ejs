@@ -10,21 +10,25 @@
 <body>
     <%- include('./partials/header') %>
     <main class="main-container">
-        <h1 class="landing-title">Add New Photo</h1>
-        <form style="color: black;" action="/updatephoto/<%=photo.id%>" method="post">
-            <p>Photo Url :</p>
-            <input type="text" name="photoUrl" value="<%= photo.photoUrl %>">
-            <p>Photo Detail :</p>
-            <input type="text" name="photoDetail" value="<%= photo.photoDetail %>">
-            <p>Include to your Photo Album</p>
-            <select name="PhotoAlbumId">
-                <% albumList.forEach(el => { %>
-                    <option <%= photo.PhotoAlbumId === el.id ? "selected" : "" %> value="<%= el.id %>"><%= el.albumName %></option>
-                <% }) %>
-            </select>
-            <p></p>
-            <input type="submit" value="save">
-        </form>
+        <div class="add-new-photo">
+            <h1 class="landing-title">Edit Photo</h1>
+            <form class="form-container" action="/updatephoto/<%=photo.id%>" method="post">
+                <p>Photo Url :</p>
+                <input type="text" name="photoUrl" value="<%= photo.photoUrl %>">
+                <p>Photo Detail :</p>
+                <input type="text" name="photoDetail" value="<%= photo.photoDetail %>">
+                <p>Include to your Photo Album</p>
+                <select name="PhotoAlbumId">
+                    <% albumList.forEach(el => { %>
+                        <option <%= photo.PhotoAlbumId === el.id ? "selected" : "" %> value="<%= el.id %>"><%= el.albumName %></option>
+                    <% }) %>
+                </select>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="save">
+            </form>
+        </div>
     </main>
 </body>
 </html>

@@ -81,7 +81,6 @@ main {
 
 .addNewPhoto {
     width:100%;
-    float:right;
     position:absolute;
     top:0;
     reight:0;
@@ -95,6 +94,42 @@ main {
 
 .landing-title {
     text-align: center;
+}
+
+.home-title {
+    font-size : 60px;
+    font-weight : bolder;
+}
+
+.landing-container {
+    margin-top : 8rem;
+    text-align : center;
+}
+
+.photo-link {
+    font-weight : bold;
+    text-decoration:underline;
+}
+
+.photo-link:hover {
+    color:rgb(246, 207, 160);
+}
+
+.landing-button-container {
+    width:50%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-around;
+}
+
+.landing-button-container a {
+    padding: 0.5rem 1.2rem;
+    border-radius:20px;
+    background-color:gray;
+}
+
+.site-description {
+    line-height : 1.6;
 }
 
 .album-title {
@@ -145,6 +180,11 @@ h1 {
 a {
     text-decoration: none;
     color: #fff;
+}
+
+a:hover {
+    color: rgb(246, 207, 160);
+    cursor: pointer;
 }
 
 .btn-1 {
