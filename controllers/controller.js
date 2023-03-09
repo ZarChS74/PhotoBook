@@ -47,7 +47,6 @@ class Controller {
     }
 
     static signupHandler(req, res) {
-        // console.log(req.body);
         User.create(req.body)
             .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
@@ -68,7 +67,6 @@ class Controller {
         const user = req.session.user;
         Photo.photoFinder(search)
             .then(photos => {
-                // res.send(photos);
                 res.render('photoCollection', { user, photos, dateFormatter, search })
             })
             .catch(err => { console.log(err); res.send(err) })
@@ -118,10 +116,11 @@ class Controller {
 
     static editProfileHandler(req, res) {
         const user = req.session.user;
-        Profile.update(
-            {...req.body, UserId : user.id},
-            {where : {id : user.id}}
-        )
+        User.findOne({
+            include: Profile,
+            where: { id: user.id }
+        })
+            .then(user => Profile.profileEditor(user, req.body))
             .then(() => res.redirect('/myProfile'))
             .catch(err => {console.log(err); res.send(err)});
     }
@@ -145,7 +144,6 @@ class Controller {
                     })
                 })
                 .then(photos => {
-                    // res.send({ user, photoAlbum, photos, dateFormatter })
                     res.render('myPhotos', { user, photoAlbum, photos, dateFormatter, search })
                 })
                 .catch(err => { console.log(err); res.send(err) });

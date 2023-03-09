@@ -13,15 +13,15 @@
         <div style="padding-top: 4rem; color: black;">
             <form action="/myProfile/edit" method="post">
                 <p>First Name :</p>
-                <input type="text" name="firstName" value="<%= profile.firstName %>">
+                <input type="text" name="firstName" value="<%= profile ? profile.firstName : "" %>">
                 <p>Last Name :</p>
-                <input type="text" name="lastName" value="<%= profile.lastName %>">
+                <input type="text" name="lastName" value="<%= profile ? profile.lastName : "" %>">
                 <p>Age :</p>
-                <input type="text" name="age" value="<%= profile.age %>">
+                <input type="text" name="age" value="<%= profile ? profile.age : "" %>">
                 <p>Location :</p>
-                <input type="text" name="location" value="<%= profile.location %>">
+                <input type="text" name="location" value="<%= profile ? profile.location : "" %>">
                 <p>Phone Number :</p>
-                <input type="text" name="phoneNumber" value="<%= profile.phoneNumber %>">
+                <input type="text" name="phoneNumber" value="<%= profile ? profile.phoneNumber : "" %>">
                 <p></p>
                 <input type="submit" value="Save">
             </form>

@@ -13,6 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Profile.belongsTo(models.User);
     }
+
+    static profileEditor(user, input) {
+      if (!user.Profile) {
+        return Profile.create({...input, UserId : user.id});
+    } else {
+        return Profile.update(
+            {...input, UserId : user.id},
+            {where : {id : user.id}}
+        )
+    }
+    }
   }
   Profile.init({
     firstName: DataTypes.STRING,
