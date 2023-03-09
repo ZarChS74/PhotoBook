@@ -25,8 +25,4 @@ async function automaticSender(user) {
       });
 }
 
-// automaticSender('afnabdillah@gmail.com')
-//     .then(() => console.log('Send message to success'))
-//     .catch(err => console.log(err))
-
 module.exports = automaticSender;

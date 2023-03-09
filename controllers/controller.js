@@ -4,11 +4,6 @@ const automaticSender = require('../helpers/automaticSender');
 
 class Controller {
 
-    static home(req, res) {
-
-        res.render('home');
-    }
-
     static login(req, res) {
         const { errors } = req.query;
         res.render('login', { errors });
@@ -27,7 +22,8 @@ class Controller {
                     const isValid = bcrypt.compareSync(password, user.password);
                     const invalidUser = `Wrong username/password`;
                     if (isValid) {
-                        req.session.user = { id: user.id, username, role: user.role };
+                        req.session.user = { id: user.id, username: username, email: user.email };
+                        console.log(req.session.user);
                         res.redirect('/')
                     } else {
                         res.redirect(`/login?errors=${invalidUser}`)
@@ -41,17 +37,14 @@ class Controller {
 
     static signupHandler(req, res) {
         User.create(req.body)
-            .then((newUser) => automaticSender(newUser))
+            // .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
             .catch(err => res.send(err));
     }
 
     static home(req, res) {
-        res.render('home');
-    }
-
-    static home(req, res) {
-        res.render('home');
+        const user = req.session.user;
+        res.render('home', { user });
     }
 }
 
