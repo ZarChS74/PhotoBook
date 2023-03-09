@@ -19,6 +19,7 @@ class Controller {
 
     static loginHandler(req, res) {
         const { username, password } = req.body;
+        console.log(req.body);
         User.findOne({ where: { username } })
             .then(user => {
                 const invalidUser = `Wrong username/password`;
