@@ -14,47 +14,47 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.Profile)
+      User.hasOne(models.Profile);
+      User.hasMany(models.PhotoAlbum);
       User.hasMany(models.Photo);
-      User.hasMany(models.PhotoAlbum)
     }
-    
+
   }
   User.init({
     username: {
-      type :DataTypes.STRING,
-      unique:true,
-      allowNull : false,
-      validate : {
-        notNull : {
-          msg : 'Username cannot be null'
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Username cannot be null'
         },
-        notEmpty : {
-          msg : 'Username cannot be empty'
+        notEmpty: {
+          msg: 'Username cannot be empty'
         }
       }
     },
     password: {
-      type :DataTypes.STRING,
-      allowNull : false,
-      validate : {
-        notNull : {
-          msg : 'Password cannot be null'
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Password cannot be null'
         },
-        notEmpty : {
-          msg : 'Password cannot be empty'
+        notEmpty: {
+          msg: 'Password cannot be empty'
         }
       }
     },
-    email : {
-      type :DataTypes.STRING,
-      allowNull : false,
-      validate : {
-        notNull : {
-          msg : 'Email cannot be null'
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Email cannot be null'
         },
-        notEmpty : {
-          msg : 'Email cannot be empty'
+        notEmpty: {
+          msg: 'Email cannot be empty'
         }
       }
     }

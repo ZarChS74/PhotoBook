@@ -1,4 +1,4 @@
-const { User, Photo, PhotoAlbum, Profile } = require('../models');
+const { User, Photo, PhotoAlbum, Profile, Tags } = require('../models');
 const bcrypt = require('bcryptjs');
 const automaticSender = require('../helpers/automaticSender');
 
@@ -23,7 +23,6 @@ class Controller {
                     const invalidUser = `Wrong username/password`;
                     if (isValid) {
                         req.session.user = { id: user.id, username: username, email: user.email };
-                        console.log(req.session.user);
                         res.redirect('/')
                     } else {
                         res.redirect(`/login?errors=${invalidUser}`)
@@ -46,6 +45,26 @@ class Controller {
         const user = req.session.user;
         res.render('home', { user });
     }
+
+    static myPhotosRender(req, res) {
+        const { id, username, email } = req.session.user;
+        console.log(req.session.user);
+        let photoAlbum;
+        PhotoAlbum.findOne({
+            include: Photo,
+            where: { UserId: id }
+        })
+            .then(result => {
+                photoAlbum = result;
+                return Photo.findAll({
+                    include : Tags,
+                    where: { UserId: id } 
+                })
+            })
+            .then(photos => res.send({ photoAlbum, photos }))
+            .catch(err => { console.log(err); res.send(err) });
+    }
+
 }
 
 module.exports = Controller;

@@ -31,6 +31,8 @@ app.use((req, res, next) => {
 
 app.get('/', Controller.home);
 
+app.get('/myPhotos', Controller.myPhotosRender);
+
 
 
 
