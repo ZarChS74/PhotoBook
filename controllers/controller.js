@@ -23,7 +23,6 @@ class Controller {
                     const invalidUser = `Wrong username/password`;
                     if (isValid) {
                         req.session.user = { id: user.id, username: username, email: user.email };
-                        console.log(req.session.user);
                         res.redirect('/')
                     } else {
                         res.redirect(`/login?errors=${invalidUser}`)
@@ -46,6 +45,16 @@ class Controller {
         const user = req.session.user;
         res.render('home', { user });
     }
+
+    static myPhotosRender(req, res) {
+        const {id, username, email} = req.session.user;
+        Photo.findAll({
+            where : {UserId : id }
+        })
+            .then(photos => res.send(photos))
+            .catch(err => {console.log(err);res.send(err)});
+    }
+
 }
 
 module.exports = Controller;

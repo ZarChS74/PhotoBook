@@ -6,7 +6,6 @@
         "age": 35,
         "location": "Jakarta",
         "phoneNumber": "080909090908",
-        "email": "donovan.wang@test.com",
         "UserId": 1
     },
     {
@@ -16,7 +15,6 @@
         "age": 30,
         "location": "Semarang",
         "phoneNumber": "081234567890",
-        "email": "zack.goodwin@test.com",
         "UserId": 2
     },
     {
@@ -26,7 +24,6 @@
         "age": 25,
         "location": "Surabaya",
         "phoneNumber": "080987654321",
-        "email": "jenna.mcmillan@test.com",
         "UserId": 3
     }
 ]

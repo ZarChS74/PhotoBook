@@ -11,8 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      PhotoAlbum.belongsTo(models.User)
-      PhotoAlbum.hasMany(models.Photo)
+      PhotoAlbum.belongsTo(models.User);
     }
   }
   PhotoAlbum.init({

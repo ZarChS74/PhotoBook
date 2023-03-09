@@ -1,33 +1,27 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
- up(queryInterface, Sequelize) {
-    return queryInterface.createTable('Profiles', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('PhotoTags', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
-      age: {
-        type: Sequelize.INTEGER
-      },
-      location: {
-        type: Sequelize.STRING
-      },
-      phoneNumber: {
-        type: Sequelize.STRING
-      },
-      UserId: {
+      TagId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users",
+          model: "Tags",
+          key: "id",
+        },
+        onUpdate: "CASCADE",
+        onDelete: "CASCADE"
+      },
+      PhotoId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Photos",
           key: "id",
         },
         onUpdate: "CASCADE",
@@ -43,7 +37,7 @@ module.exports = {
       }
     });
   },
- down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Profiles');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('PhotoTags');
   }
 };
