@@ -112,10 +112,11 @@ a {
 
 .box-container {
     /* content: 100px; */
-    padding-left: 1px;
-    padding-right: 1px;
+    /* padding-left: 1px;
+    padding-right: 1px; */
     /* border-right: 2px; */
+    border-bottom: 2px;
     border: 1px solid;
-    border-width: 30px;
-    border-color:#000000;
+    /* border-width: 150px; */
+    /* border-color:#000000; */
 }

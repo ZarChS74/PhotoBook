@@ -29,6 +29,11 @@
                     <div>
                         <input type="submit"  class="btn-1" value="Login">
                     </div><br>
+                    <% if (errors) { %>
+                        <% errors.split(',').forEach(el => { %>
+                            <p style="color: red;"><%= el %></p>
+                        <% }) %>
+                    <% } %>
                 </form>
                 <div><br>
                     <label for="signup">Don't have account yet?</label>
