@@ -15,12 +15,15 @@
             <div class="login">
                 <a href="/myprofile"><%= user.username%></a>
             </div>
-            <div class="myphotos">
+            <div>
                 <a href="/myPhotos">My Photos</a>
             </div>
         <% } else { %>
             <div class="login">
                 <a href="/login">Log In</a>
+            </div>
+            <div>
+                <a href="/signup">Sign Up</a>
             </div>
         <% } %>
     </div>

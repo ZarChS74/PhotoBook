@@ -13,8 +13,8 @@
     <%- include('./partials/header') %>
         <main class="main-container">
             <% photoAlbum.forEach(el => { %>
+                <h1 class="album-title">Album "<%= el.albumName %>"</h1>
                 <div class="album-container">
-                    <h1 class="album-title">Album "<%= el.albumName %>"</h1>
                     <div style="display: flex;">
                         <% el.Photos.forEach(photo => { %>
                             <div style="margin-right: 1rem;">
@@ -24,7 +24,7 @@
                     </div>
                 </div>
             <% }) %>
-                <div class="photo-title-container">
+            <div class="photo-title-container">
                     <h1 class="photo-title" style="color: rgb(255, 255, 255);">Your Photos</h1>
                     <p class="addNewPhoto"><a href="/addphoto">Add New Photo</a></p>
                 </div>
