@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/css/stylesheet.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main class="main-container">
+        <div style="padding-top: 4rem; color: black;">
+            <% photos.forEach(el => { %>
+             <div>
+                <h2><%= el.photoDetail %></h2>
+                <div>
+                    <img style="max-width: 50rem; max-height: 40rem;" src="<%=el.photoUrl%>">
+                </div>
+                <div style="display: flex; justify-content: space-around;">
+                    <p>by <%=el.User.username%></p>
+                    <p><%=el.tagJoiner()%></p>
+                    <p><%=dateFormatter(el.createdAt)%></p>
+                </div>
+             </div>
+            <% }) %>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,6 +1,6 @@
 'use strict';
 const {
-  Model
+  Model, Op
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Photo extends Model {
@@ -14,6 +14,17 @@ module.exports = (sequelize, DataTypes) => {
       Photo.belongsTo(models.User);
       Photo.belongsTo(models.PhotoAlbum);
       Photo.belongsToMany(models.Tags, { through: models.PhotoTags });
+    }
+
+    static createdAtFormatter() {
+      return this.createdAt.toISOString().split("T")[0];
+    }
+
+    static photoFinder(search) {
+      return Photo.findAll({
+        include: ['Tags','User'],
+        where: { photoDetail: { [Op.iLike]: `%${search}%` } }
+    })
     }
 
     tagJoiner() {

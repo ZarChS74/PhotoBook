@@ -1,6 +1,9 @@
 const { User, Photo, PhotoAlbum, Profile, Tags } = require('../models');
 const bcrypt = require('bcryptjs');
 const automaticSender = require('../helpers/automaticSender');
+const dateFormatter = require('../helpers/dateFormatter');
+
+const { Op } = require('sequelize');
 
 class Controller {
 
@@ -43,38 +46,61 @@ class Controller {
         //display validasi, cek apakah err.name === "SequelizeValidationError" di map ambil err.errors direturn el.message diredirect render signup sambil bawa error lewat query
     }
 
-    static home(req, res) {
+    static photos(req, res) {
+        const search = req.query.search ?? "";
         const user = req.session.user;
-        res.render('home', { user });
+        Photo.photoFinder(search)
+            .then(photos => {
+                // res.send(photos);
+                res.render('photoCollection', { user, photos, dateFormatter, search })
+            })
+            .catch(err => { console.log(err); res.send(err) })
+    }
+
+    static home(req, res) {
+        const search = req.query.search ?? "";
+        const user = req.session.user;
+        res.render('home', { user, search });
     }
 
     static myPhotosRender(req, res) {
-        const user = req.session.user;
-        let photoAlbum;
-        PhotoAlbum.findOne({
-            include: Photo,
-            where: { UserId: user.id }
-        })
-            .then(result => {
-                photoAlbum = result;
-                return Photo.findAll({
-                    include: Tags,
-                    where: { UserId: user.id }
+        const search = req.query.search ?? "";
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            let photoAlbum;
+            PhotoAlbum.findAll({
+                include: Photo,
+                where: { UserId: user.id }
+            })
+                .then(result => {
+                    photoAlbum = result;
+                    return Photo.findAll({
+                        include: Tags,
+                        where: { UserId: user.id }
+                    })
                 })
-            })
-            .then(photos => {
-                res.render('myPhotos', { user, photoAlbum, photos })
-            })
-            .catch(err => { console.log(err); res.send(err) });
+                .then(photos => {
+                    // res.send({ user, photoAlbum, photos, dateFormatter })
+                    res.render('myPhotos', { user, photoAlbum, photos, dateFormatter, search })
+                })
+                .catch(err => { console.log(err); res.send(err) });
+        }
     }
 
     static addPhotos(req, res) {
-        const user = req.session.user;
-        PhotoAlbum.findAll({ where: { UserId: user.id } })
-            .then(albums => {
-                res.render('addPhotos', { user, albums })
-            })
-            .catch(err => res.send(err));
+        const search = req.query.search ?? "";
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            PhotoAlbum.findAll({ where: { UserId: user.id } })
+                .then(albums => {
+                    res.render('addPhotos', { user, albums, search })
+                })
+                .catch(err => res.send(err));
+        }
     }
 
     static addPhotosHandler(req, res) {
@@ -86,16 +112,20 @@ class Controller {
     }
 
     static updatePhotoRender(req, res) {
-        const user = req.session.user;
-        const { photoId } = req.params;
-        let albumList;
-        PhotoAlbum.findAll({ where: { UserId: user.id } })
-            .then(albums => {
-                albumList = albums;
-                return Photo.findByPk(photoId);
-            })
-            .then(photo => {res.render('editPhoto', { user, albumList, photo })})
-            .catch(err => {console.log(err);res.send(err)});
+        if (!req.session.user) {
+            res.redirect('/login');
+        } else {
+            const user = req.session.user;
+            const { photoId } = req.params;
+            let albumList;
+            PhotoAlbum.findAll({ where: { UserId: user.id } })
+                .then(albums => {
+                    albumList = albums;
+                    return Photo.findByPk(photoId);
+                })
+                .then(photo => { res.render('editPhoto', { user, albumList, photo, search }) })
+                .catch(err => { console.log(err); res.send(err) });
+        }
     }
 
     static updatePhotoHandler(req, res) {

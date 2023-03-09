@@ -12,24 +12,27 @@
 <body>
     <%- include('./partials/header') %>
         <main class="main-container">
-            <h1 style="color: black; margin-top: 8rem;">Album <%= photoAlbum.albumName %></h1>
-            <div style="display: flex;">
-                <% photoAlbum.Photos.forEach(el => { %>
-                    <div style="margin-right: 1rem;">
-                        <img style="max-width: 50rem; max-height: 40rem;" src="<%= el.photoUrl %>">
-                    </div>
-                <% }) %>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-top: 4rem;">
-                <h1 style="color: black;">Your Photos</h1>
-                <p><a href="/addphoto">Add New Photo</a></p>
-            </div>
+            <% photoAlbum.forEach(el => { %>
+                <h1 style="color: black; margin-top: 6rem;">Album "<%= el.albumName %>"</h1>
+                <div style="display: flex;">
+                    <% el.Photos.forEach(photo => { %>
+                        <div style="margin-right: 1rem;">
+                            <img style="max-width: 50rem; max-height: 40rem;" src="<%= photo.photoUrl %>">
+                        </div>
+                    <% }) %>
+                </div>
+            <% }) %>
+                <div style="display: flex; justify-content: space-between; margin-top: 4rem;">
+                    <h1 style="color: black;">Your Photos</h1>
+                    <p><a href="/addphoto">Add New Photo</a></p>
+                </div>
             <% photos.forEach(el => { %>
                 <div>
                     <img style="max-width: 50rem; max-height: 40rem;" src="<%= el.photoUrl %>" alt="">
-                    <div>
-                        <p style="color: black;"><%= el.tagJoiner() %></p>
+                    <div style="display: flex; justify-content: space-between;">
                         <p><a href="/updatephoto/<%= el.id %>">Edit Photo</a></p>
+                        <p style="color: black;"><%= el.tagJoiner() %></p>
+                        <p style="color: black;">Added at : <%= dateFormatter(el.createdAt) %></p>
                     </div>
                 </div>
             <% }) %>
