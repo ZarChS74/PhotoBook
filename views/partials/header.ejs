@@ -1,7 +1,11 @@
 <header>
     <div class="header-logo">
-        Photo Book
+        <a href="/">Photo Book</a>
     </div>
+    <form class="search-container" action="/photos" method="get">
+        <input class="searchbox" type="text" name="search" placeholder=" type your favorite tags ... ">
+        <input class="searchButton" type="submit" value="Search">
+    </form>
     <div class="flex-container">
         <div class="login">
             <% if (user) { %>
@@ -30,9 +34,12 @@
     }
     .header-logo {
         padding: 1rem;
-        color: bisque;
-        font-weight: bold;
         margin-left:0.5rem;
+    }
+    .header-logo a {
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
     }
     .flex-container {
         display: flex;
@@ -43,7 +50,7 @@
     .login {
         margin-right: 1rem;
     }
-    header a {
+    .flex-container a {
         text-decoration: none;
         color: bisque;
     }
@@ -51,5 +58,29 @@
     header a:hover {
         color: rgb(246, 207, 160);
         cursor: pointer;
+    }
+    .search-container {
+        padding: 0.65rem;
+    }
+
+    .searchbox {
+        width: 30rem;
+        padding: 0.2rem 0.75rem;
+        border-radius: 10px;
+    }
+    .searchButton {
+        display: none;
+    }
+    main {
+        margin-top: 4rem;
+        color: white;
+    }
+    .main-container {
+        width: 66%;
+        margin: 0 auto;
+    }
+
+    .landing-title {
+        text-align: center;
     }
 </style>
