@@ -47,8 +47,9 @@ class Controller {
     }
 
     static signupHandler(req, res) {
+        // console.log(req.body);
         User.create(req.body)
-            // .then((newUser) => automaticSender(newUser))
+            .then((newUser) => automaticSender(newUser))
             .then(() => res.redirect('/'))
             .catch(err => {
                 if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {

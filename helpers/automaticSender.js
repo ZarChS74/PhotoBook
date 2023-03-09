@@ -1,16 +1,13 @@
 const nodemailer = require('nodemailer');
 
-
 async function automaticSender(user) {
     
     let transporter = nodemailer.createTransport({
-        service: 'hotmail',
-        host: "photo_book123@outlook.com",
-        port: 587,
+        service: 'gmail',
         secure: false, // true for 465, false for other ports
         auth: {
-            user: "photo_book123@outlook.com", // generated ethereal user
-            pass: "321kooBotohP", // generated ethereal password
+            user: "albummiracle098@gmail.com", // generated ethereal user
+            pass: "dtyoqwhefmvtvbyw", // gmail app pasword
         },
     });
     
@@ -20,9 +17,16 @@ async function automaticSender(user) {
         subject: "Hello ✔", // Subject line
         text: `
             Halo ${user.username}, selamat datang di situs kami, Photo Book!,
-            Silakan lihat-lihat foto Anda di Bagian MyAlbum, dan Anda juga bisa mengupload foto Anda di Bagian Add New Photo
+            Silakan lihat-lihat foto Anda di Bagian myPhotos!
         `, // plain text body // html body
       });
+    console.log("Message sent: %s", info.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 }
+
+// automaticSender('afnabdillah@gmail.com').catch(console.error);
 
 module.exports = automaticSender;
