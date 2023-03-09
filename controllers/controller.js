@@ -4,6 +4,7 @@ const automaticSender = require('../helpers/automaticSender');
 const dateFormatter = require('../helpers/dateFormatter');
 
 const { Op } = require('sequelize');
+const tagsFunction = require('../helpers/tagsFunction');
 
 class Controller {
 
@@ -173,12 +174,24 @@ class Controller {
 
     static addPhotosHandler(req, res) {
         const { id, username, email } = req.session.user;
-        Photo.create({ ...req.body, UserId: id })
-            .then(() => res.redirect('/myPhotos'))
-            .catch(err => res.send(err));
+        Photo.create({...req.body, UserId : id})
+            .then(newPhoto => {
+                if (!req.body.tags) {
+                    res.redirect('/myPhotos');
+                } else {
+                    tagsFunction(newPhoto, req.body.tags, (err) => {
+                        if (err) {
+                            res.send(err);
+                        } else {
+                            res.redirect('/myPhotos');
+                        }
+                    })
+                }
+            })
     }
 
     static updatePhotoRender(req, res) {
+        const search = req.query.search ?? "";
         if (!req.session.user) {
             res.redirect('/login');
         } else {
