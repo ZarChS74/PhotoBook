@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/css/stylesheet.css">
+</head>
+<body>
+    <%- include('./partials/header') %>
+    <main class="main-container">
+        <h1 class="landing-title">Add New Photo</h1>
+        <form style="color: black;" action="/addphoto" method="post">
+            <p>Photo Url :</p>
+            <input type="text" name="photoUrl">
+            <p>Photo Detail :</p>
+            <input type="text" name="photoDetail">
+            <p>Include to your Photo Album</p>
+            <select name="PhotoAlbumId">
+                <option disabled selected hidden>choose one</option>
+                <% albums.forEach(el => { %>
+                    <option value="<%= el.id %>"><%= el.albumName %></option>
+                <% }) %>
+            </select>
+            <p></p>
+            <input type="submit" value="save">
+        </form>
+    </main>
+</body>
+</html>

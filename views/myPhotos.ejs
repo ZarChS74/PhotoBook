@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/assets/css/stylesheet.css">
+</head>
+
+<body>
+    <%- include('./partials/header') %>
+        <main class="main-container">
+            <h1 style="color: black; margin-top: 8rem;">Album <%= photoAlbum.albumName %></h1>
+            <div style="display: flex;">
+                <% photoAlbum.Photos.forEach(el => { %>
+                    <div style="margin-right: 1rem;">
+                        <img style="max-width: 50rem; max-height: 40rem;" src="<%= el.photoUrl %>">
+                    </div>
+                <% }) %>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 4rem;">
+                <h1 style="color: black;">Your Photos</h1>
+                <p><a href="/addphoto">Add New Photo</a></p>
+            </div>
+            <% photos.forEach(el => { %>
+                <div>
+                    <img style="max-width: 50rem; max-height: 40rem;" src="<%= el.photoUrl %>" alt="">
+                    <div>
+                        <p style="color: black;"><%= el.tagJoiner() %></p>
+                        <p><a href="/updatephoto/<%= el.id %>">Edit Photo</a></p>
+                    </div>
+                </div>
+            <% }) %>
+        </main>
+</body>
+
+</html>
