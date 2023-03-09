@@ -1,0 +1,99 @@
+[
+    {
+        "PhotoId": 1,
+        "TagId": 1
+    },
+    {
+        "PhotoId": 2,
+        "TagId": 2
+    },
+    {
+        "PhotoId": 3,
+        "TagId": 3
+    },
+    {
+        "PhotoId": 4,
+        "TagId": 4
+    },
+    {
+        "PhotoId": 5,
+        "TagId": 5
+    },
+    {
+        "PhotoId": 6,
+        "TagId": 6
+    },
+    {
+        "PhotoId": 7,
+        "TagId": 1
+    },
+    {
+        "PhotoId": 8,
+        "TagId": 2
+    },
+    {
+        "PhotoId": 9,
+        "TagId": 3
+    },
+    {
+        "PhotoId": 10,
+        "TagId": 4
+    },
+    {
+        "PhotoId": 11,
+        "TagId": 5
+    },
+    {
+        "PhotoId": 12,
+        "TagId": 6
+    },
+    {
+        "PhotoId": 13,
+        "TagId": 1
+    },
+    {
+        "PhotoId": 14,
+        "TagId": 2
+    },
+    {
+        "PhotoId": 15,
+        "TagId": 3
+    },
+    {
+        "PhotoId": 16,
+        "TagId": 4
+    },
+    {
+        "PhotoId": 17,
+        "TagId": 5
+    },
+    {
+        "PhotoId": 18,
+        "TagId": 6
+    },
+    {
+        "PhotoId": 19,
+        "TagId": 1
+    },
+    {
+        "PhotoId": 20,
+        "TagId": 2
+    },
+    {
+        "PhotoId": 21,
+        "TagId": 3
+    },
+    {
+        "PhotoId": 22,
+        "TagId": 4
+    },
+    {
+        "PhotoId": 23,
+        "TagId": 5
+    },
+    {
+        "PhotoId": 24,
+        "TagId": 6
+    }
+
+]

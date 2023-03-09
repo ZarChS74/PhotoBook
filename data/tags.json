@@ -1,26 +1,26 @@
 [
     {
         "id": 1,
-        "tagName": "Foods & Beverages",
+        "tagName": "Foods & Beverages"
     },
     {
         "id": 2,
-        "tagName": "House",
+        "tagName": "House"
     },
     {
         "id": 3,
-        "tagName": "Cat",
+        "tagName": "Cat"
     },
     {
         "id": 4,
-        "tagName": "Fruit",
+        "tagName": "Fruit"
     },
     {
         "id": 5,
-        "tagName": "Landscape",
+        "tagName": "Landscape"
     },
     {
         "id": 6,
-        "tagName": "Marine Life",
+        "tagName": "Marine Life"
     }
 ]
