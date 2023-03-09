@@ -10,14 +10,14 @@
 <body>
     <%- include('./partials/header') %>
     <main class="main-container">
-        <div style="padding-top: 4rem; color: black;">
+        <div class="photo-container" style="margin-top: 4rem;">
             <% photos.forEach(el => { %>
              <div>
-                <h2><%= el.photoDetail %></h2>
-                <div>
+                <h2 class="photo-title" ><%= el.photoDetail %></h2>
+                <div class="photo-title">
                     <img style="max-width: 50rem; max-height: 40rem;" src="<%=el.photoUrl%>">
                 </div>
-                <div style="display: flex; justify-content: space-around;">
+                <div class="caption">
                     <p>by <%=el.User.username%></p>
                     <p><%=el.tagJoiner()%></p>
                     <p><%=dateFormatter(el.createdAt)%></p>

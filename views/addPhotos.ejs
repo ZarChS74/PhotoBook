@@ -10,24 +10,28 @@
 <body>
     <%- include('./partials/header') %>
     <main class="main-container">
-        <h1 class="landing-title">Add New Photo</h1>
-        <form style="color: black;" action="/addphoto" method="post">
-            <p>Photo Url :</p>
-            <input type="text" name="photoUrl">
-            <p>Photo Detail :</p>
-            <input type="text" name="photoDetail">
-            <p>Include to your Photo Album</p>
-            <select name="PhotoAlbumId">
-                <option disabled selected hidden>choose one</option>
-                <% albums.forEach(el => { %>
-                    <option value="<%= el.id %>"><%= el.albumName %></option>
-                <% }) %>
-            </select>
-            <p>Tags :</p>
-            <input type="text" name="tags" placeholder="insert multiple tags with spaces">
-            <p></p>
-            <input type="submit" value="save">
-        </form>
+        <div class="add-new-photo">
+            <h1 class="landing-title">Add New Photo</h1>
+            <form class="form-container" action="/addphoto" method="post">
+                <p>Photo Url :</p>
+                <input type="text" name="photoUrl">
+                <p>Photo Detail :</p>
+                <input type="text" name="photoDetail">
+                <p>Include to your Photo Album</p>
+                <select name="PhotoAlbumId">
+                    <option disabled selected hidden>choose one</option>
+                    <% albums.forEach(el => { %>
+                        <option value="<%= el.id %>"><%= el.albumName %></option>
+                    <% }) %>
+                </select>
+                <p>Tags :</p>
+                <input type="text" name="tags" placeholder="insert multiple tags with spaces">
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="save">
+            </form>
+        </div>
     </main>
 </body>
 </html>
