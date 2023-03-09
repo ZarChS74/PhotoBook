@@ -12,30 +12,32 @@
 <body>
     <%- include('./partials/header') %>
         <main class="main-container">
-            <div></div>
-
             <% photoAlbum.forEach(el => { %>
-                <h1 style="color: black; margin-top: 6rem;">Album "<%= el.albumName %>"</h1>
-                <div style="display: flex;">
-                    <% el.Photos.forEach(photo => { %>
-                        <div style="margin-right: 1rem;">
-                            <img style="max-width: 50rem; max-height: 40rem;" src="<%= photo.photoUrl %>">
-                        </div>
-                    <% }) %>
+                <div class="album-container">
+                    <h1 class="album-title">Album "<%= el.albumName %>"</h1>
+                    <div style="display: flex;">
+                        <% el.Photos.forEach(photo => { %>
+                            <div style="margin-right: 1rem;">
+                                <img style="max-width: 50rem; max-height: 40rem;" src="<%= photo.photoUrl %>">
+                            </div>
+                        <% }) %>
+                    </div>
                 </div>
             <% }) %>
-                <div style="display: flex; justify-content: space-between; margin-top: 4rem;">
-                    <h1 style="color: rgb(255, 255, 255);">Your Photos</h1>
-                    <p><a href="/addphoto">Add New Photo</a></p>
+                <div class="photo-title-container">
+                    <h1 class="photo-title" style="color: rgb(255, 255, 255);">Your Photos</h1>
+                    <p class="addNewPhoto"><a href="/addphoto">Add New Photo</a></p>
                 </div>
             <% photos.forEach(el => { %>
-                <div>
-                    <img src="<%= el.photoUrl %>" alt="">
-                    <div style="display: flex; justify-content: space-between;">
-                        <p><a href="/updatephoto/<%= el.id %>">Edit Photo</a></p>
-                        <p><a href="/myPhotos/<%= el.id %>/delete">Delete Photo</a></p>
-                        <p style="color: black;"><%= el.tagJoiner() %></p>
-                        <p style="color: black;">Added at : <%= dateFormatter(el.createdAt) %></p>
+                <div class="photo-container">
+                    <div  class="photo-title">
+                        <img src="<%= el.photoUrl %>">
+                    </div>
+                    <div class="caption">
+                        <p><a href="/updatephoto/<%= el.id %>">Edit</a></p>
+                        <p><a href="/myPhotos/<%= el.id %>/delete">Delete</a></p>
+                        <p><%= el.tagJoiner() %></p>
+                        <p>Added at : <%= dateFormatter(el.createdAt) %></p>
                     </div>
                 </div>
             <% }) %>

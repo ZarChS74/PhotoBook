@@ -66,8 +66,64 @@ main {
     margin: 0 auto;
 }
 
+.album-container {
+    overflow-x:scroll;
+}
+
+.photo-title-container {
+    margin-top: 4rem;
+    position:relative;
+}
+
+.photo-title {
+    text-align : center;
+}
+
+.addNewPhoto {
+    width:100%;
+    float:right;
+    position:absolute;
+    top:0;
+    reight:0;
+}
+
+.photo-container {
+    width:80%;
+    margin : 0 auto;
+    color: white;
+}
+
 .landing-title {
     text-align: center;
+}
+
+.album-title {
+    margin-top: 6rem;
+}
+
+.caption-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.caption {
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-new-photo {
+    margin-top : 4rem;
+}
+
+.form-container {
+    width:66%;
+    margin:0 auto;
+}
+
+.form-container input, select {
+    width:100%;
+    padding:0.25rem;
+    border-radius : 0.25rem;
 }
 
 body{
