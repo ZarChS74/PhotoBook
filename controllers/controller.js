@@ -48,7 +48,6 @@ class Controller {
 
     static myPhotosRender(req, res) {
         const { id, username, email } = req.session.user;
-        console.log(req.session.user);
         let photoAlbum;
         PhotoAlbum.findOne({
             include: Photo,
@@ -57,12 +56,44 @@ class Controller {
             .then(result => {
                 photoAlbum = result;
                 return Photo.findAll({
-                    include : Tags,
-                    where: { UserId: id } 
+                    include: Tags,
+                    where: { UserId: id }
                 })
             })
             .then(photos => res.send({ photoAlbum, photos }))
             .catch(err => { console.log(err); res.send(err) });
+    }
+
+    static addPhotos(req, res) {
+        const { id, username, email } = req.session.user;
+        PhotoAlbum.findAll()
+            .then(albums => res.render('addPhotos', { albums }))
+            .catch(err => res.send(err));
+    }
+
+    static addPhotosHandler(req, res) {
+        const { id, username, email } = req.session.user;
+        Photo.create({ ...req.body, UserId: id })
+            .then(() => res.redirect('/myPhotos'))
+            .catch(err => res.send(err));
+    }
+
+    static updatePhotoRender(req, res) {
+        const { photoId } = req.params;
+        Photo.findByPK(photoId)
+            .then(photo => res.render('editPhoto', { photo }))
+            .catch(err => res.send(err));
+    }
+
+    static updatePhotoRender(req, res) {
+        const { id, username, email } = req.session.user;
+        const { photoId } = req.params;
+        Photo.update(
+            {...req.body, UserId : id},
+            {where : {id : photoId}}
+        )
+            .then(() => res.redirect('/myPhotos'))
+            .catch(err => res.send(err));
     }
 
 }
