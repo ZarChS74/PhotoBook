@@ -10,9 +10,10 @@
     <div class="flex-container">
         <% if (user) { %>
             <div class="login">
-                <a href="/myprofile">
-                    <%= user.username%>
-                </a>
+                <a href="/logout">Log Out</a>
+            </div>
+            <div class="login">
+                <a href="/myprofile"><%= user.username%></a>
             </div>
             <div class="myphotos">
                 <a href="/myPhotos">My Photos</a>

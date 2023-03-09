@@ -17,6 +17,7 @@ app.use(session({
 }))
 
 app.set('view engine', 'ejs');
+
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/login', Controller.login);
@@ -45,8 +46,7 @@ app.get('/updatephoto/:photoId', Controller.updatePhotoRender);
 
 app.post('/updatephoto/:photoId', Controller.updatePhotoHandler);
 
-
-
+app.get('/logout', Controller.logout);
 
 app.listen(port, () => {
 
