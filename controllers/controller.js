@@ -2,8 +2,6 @@ const { User, Photo, PhotoAlbum, Profile, Tags } = require('../models');
 const bcrypt = require('bcryptjs');
 const automaticSender = require('../helpers/automaticSender');
 const dateFormatter = require('../helpers/dateFormatter');
-
-const { Op } = require('sequelize');
 const tagsFunction = require('../helpers/tagsFunction');
 
 class Controller {
