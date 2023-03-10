@@ -7,8 +7,12 @@ const tagsFunction = require('../helpers/tagsFunction');
 class Controller {
 
     static login(req, res) {
-        const { errors } = req.query;
-        res.render('login', { errors });
+        if (req.session.user) {
+            res.redirect('/');
+        } else {
+            const { errors } = req.query;
+            res.render('login', { errors });
+        }
     }
 
     static signup(req, res) {
@@ -18,7 +22,6 @@ class Controller {
 
     static loginHandler(req, res) {
         const { username, password } = req.body;
-        console.log(req.body);
         User.findOne({ where: { username } })
             .then(user => {
                 const invalidUser = `Wrong username/password`;
