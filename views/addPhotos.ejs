@@ -27,7 +27,9 @@
                 <p>Tags :</p>
                 <input type="text" name="tags" placeholder="insert multiple tags with spaces">
                 <br>
-                <br>
+                <% errors?.split(',').forEach(el => { %>
+                    <p style="color: red; font-size: small;"><%= el %></p>
+                <% }) %>
                 <br>
                 <input type="submit" value="save">
             </form>

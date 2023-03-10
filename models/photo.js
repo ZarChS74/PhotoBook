@@ -32,8 +32,30 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Photo.init({
-    photoUrl: DataTypes.STRING,
-    photoDetail: DataTypes.STRING,
+    photoUrl: {
+      type : DataTypes.STRING,
+      allowNull: false,
+      validate : {
+        notEmpty: {
+          msg : 'Photo Url cannot be empty'
+        },
+        notNull : {
+          msg : 'Photo Url cannot be null'
+        }
+      }
+    },
+    photoDetail: {
+      type : DataTypes.STRING,
+      allowNull: false,
+      validate : {
+        notEmpty: {
+          msg : 'Photo Detail cannot be empty'
+        },
+        notNull : {
+          msg : 'Photo Detail cannot be null'
+        }
+      }
+    },
     UserId: DataTypes.INTEGER,
     PhotoAlbumId: DataTypes.INTEGER
   }, {

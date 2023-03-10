@@ -159,6 +159,7 @@ class Controller {
     }
 
     static addPhotos(req, res) {
+        const {errors} = req.query;
         const search = req.query.search ?? "";
         if (!req.session.user) {
             res.redirect('/login');
@@ -166,7 +167,7 @@ class Controller {
             const user = req.session.user;
             PhotoAlbum.findAll({ where: { UserId: user.id } })
                 .then(albums => {
-                    res.render('addPhotos', { user, albums, search })
+                    res.render('addPhotos', { user, albums, search, errors })
                 })
                 .catch(err => res.send(err));
         }
@@ -187,6 +188,14 @@ class Controller {
                         }
                     })
                 }
+            })
+            .catch(err => {
+                    if (err.name === 'SequelizeValidationError') {
+                        const errors = err.errors.map(el => el.message);
+                        res.redirect(`/addphoto?errors=${errors}`);
+                    } else {
+                        res.send(err);
+                    }
             })
     }
 
