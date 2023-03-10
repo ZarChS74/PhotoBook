@@ -23,7 +23,9 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     username: {
       type: DataTypes.STRING,
-      unique: true,
+      unique: {
+        msg : 'Username has been taken'
+      },
       allowNull: false,
       validate: {
         notNull: {

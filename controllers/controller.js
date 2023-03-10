@@ -16,8 +16,12 @@ class Controller {
     }
 
     static signup(req, res) {
-        const { errors } = req.query;
-        res.render('signup', { errors });
+        if (req.session.user) {
+            res.redirect('/');
+        } else {
+            const { errors } = req.query;
+            res.render('signup', { errors });
+        }
     }
 
     static loginHandler(req, res) {

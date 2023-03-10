@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     static photoFinder(search) {
       return Photo.findAll({
         include: ['Tags','User'],
-        where: { photoDetail: { [Op.iLike]: `%${search}%` } }
+        where: { photoDetail: { [Op.iLike]: `%${search}%` } },
+        order : [['createdAt','DESC']]
     })
     }
 
